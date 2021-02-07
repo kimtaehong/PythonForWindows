@@ -6,3 +6,6 @@ doctrees
 .vscode/
 .cache/
 dist/
+
+.idea
+venv

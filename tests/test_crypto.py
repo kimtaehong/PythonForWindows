@@ -68,6 +68,7 @@ PFW_TEST_TMP_KEY_CONTAINER = "PythonForWindowsTMPContainerTest"
 RANDOM_CERTIF_NAME = b"PythonForWindowsGeneratedRandomCertifTest"
 RANDOM_PFX_PASSWORD = "PythonForWindowsGeneratedRandomPFXPassword"
 
+
 @pytest.fixture()
 def randomkeypair(keysize=1024):
     r"""Generate a cert / pfx. Based on samples\crypto\encryption_demo.py"""
@@ -109,7 +110,6 @@ def randomkeypair(keysize=1024):
     # Destroy the TMP key container
     prov = gdef.HCRYPTPROV()
     windows.winproxy.CryptAcquireContextW(prov, PFW_TEST_TMP_KEY_CONTAINER, None, gdef.PROV_RSA_FULL, gdef.CRYPT_DELETEKEYSET)
-
 
 
 def test_certificate(rawcert):
@@ -159,7 +159,6 @@ def test_encrypt_decrypt(rawcert, rawpfx):
     assert decrypt == decrypt2
 
 
-
 def test_randomkeypair(randomkeypair):
     randcert, randrawpfx = randomkeypair
     assert randcert.name == RANDOM_CERTIF_NAME
@@ -184,7 +183,6 @@ def test_encrypt_decrypt_multiple_receivers(rawcert, rawpfx, randomkeypair):
     assert decrypted == decrypted2 == message_to_encrypt
 
 
-
 def test_crypt_obj():
     path = r"C:\windows\system32\kernel32.dll"
     x = windows.crypto.CryptObject(path)
@@ -192,6 +190,7 @@ def test_crypt_obj():
     x.crypt_msg.signers
     x.signers_and_certs
     # TODO: Need some better ideas
+
 
 def test_certificate_from_store():
     return windows.crypto.CertificateStore.from_system_store("Root")
@@ -230,6 +229,7 @@ fOMer94JhazbJxaUnV305QzF27w4GwNQ2UIpl9KWJoJJaF7azU3nVhP33agAxlxmr9fP48B6DeE1
 pbu1jX9tEWlTJC6O0TmKcRPjblEaU6VJXXlpKlKZCmwCUuHR9VtcXGnxEU1Hy7FmHM96lvDRmYQT
 Y0MnRJLyMDwGCSqGSIb3DQEHATAdBglghkgBZQMEASoEEEdEGEzKBrDO/zC8z6q6HLaAEGbjGCay
 s6u32YhUxQ4/QhI="""
+
 
 def test_cryptmsg_from_data():
     rawdata = b64decode(TEST_CRYPTMSG)

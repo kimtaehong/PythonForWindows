@@ -1,0 +1,22 @@
+typedef struct DRIVER_VER_MAJORMINOR_
+{
+    DWORD           dwMajor;
+    DWORD           dwMinor;
+} DRIVER_VER_MAJORMINOR;
+
+
+typedef struct DRIVER_VER_INFO_
+{
+    DWORD                               cbStruct;
+    ULONG_PTR                           dwReserved1;
+    ULONG_PTR                           dwReserved2;
+    DWORD                               dwPlatform;
+    DWORD                               dwVersion;
+    WCHAR                               wszVersion[MAX_PATH];
+    WCHAR                               wszSignedBy[MAX_PATH];
+    PCCERT_CONTEXT                      pcSignerCertContext;
+    DRIVER_VER_MAJORMINOR               sOSVersionLow;
+    DRIVER_VER_MAJORMINOR               sOSVersionHigh;
+    DWORD                               dwBuildNumberLow;
+    DWORD                               dwBuildNumberHigh;
+} DRIVER_VER_INFO, *PDRIVER_VER_INFO;

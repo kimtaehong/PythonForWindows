@@ -621,6 +621,33 @@ LONG WINAPI WinVerifyTrust(
     _Inout_ LPVOID pWVTData
 );
 
+CRYPT_PROVIDER_DATA* WTHelperProvDataFromStateData(
+  HANDLE hStateData
+);
+
+CRYPT_PROVIDER_SGNR * WTHelperGetProvSignerFromChain(
+  CRYPT_PROVIDER_DATA *pProvData,
+  DWORD               idxSigner,
+  BOOL                fCounterSigner,
+  DWORD               idxCounterSigner
+);
+
+DWORD CertNameToStrA(
+  DWORD           dwCertEncodingType,
+  PCERT_NAME_BLOB pName,
+  DWORD           dwStrType,
+  LPSTR           psz,
+  DWORD           csz
+);
+
+DWORD CertNameToStrW(
+  DWORD           dwCertEncodingType,
+  PCERT_NAME_BLOB pName,
+  DWORD           dwStrType,
+  LPWSTR          psz,
+  DWORD           csz
+);
+
 HGLOBAL WINAPI GlobalAlloc(
   _In_ UINT   uFlags,
   _In_ SIZE_T dwBytes

@@ -713,6 +713,63 @@
 #define WTD_STATEACTION_AUTO_CACHE_FLUSH  0x00000004
 
 
+#define WTD_PROV_FLAGS_MASK                      0x0000FFFF
+#define WTD_USE_IE4_TRUST_FLAG                   0x00000001
+#define WTD_NO_IE4_CHAIN_FLAG                    0x00000002
+#define WTD_NO_POLICY_USAGE_FLAG                 0x00000004
+#define WTD_REVOCATION_CHECK_NONE                0x00000010
+#define WTD_REVOCATION_CHECK_END_CERT            0x00000020
+#define WTD_REVOCATION_CHECK_CHAIN               0x00000040
+#define WTD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT  0x00000080
+#define WTD_SAFER_FLAG                           0x00000100
+#define WTD_HASH_ONLY_FLAG                       0x00000200
+#define WTD_USE_DEFAULT_OSVER_CHECK              0x00000400
+#define WTD_LIFETIME_SIGNING_FLAG                0x00000800
+#define WTD_CACHE_ONLY_URL_RETRIEVAL             0x00001000
+#define WTD_DISABLE_MD2_MD4                      0x00002000
+#define WTD_MOTW                                 0x00004000
+#define WTD_CODE_INTEGRITY_DRIVER_MODE           0x00008000
+
+
+#define WSS_VERIFY_SPECIFIC         0x00000001
+#define WSS_GET_SECONDARY_SIG_COUNT 0x00000002
+#define WSS_VERIFY_SEALING          0x00000004
+#define WSS_INPUT_FLAG_MASK         0x00000007
+#define WSS_OUT_SEALING_STATUS_VERIFIED 0x80000000
+#define WSS_OUT_HAS_SEALING_INTENT  0x40000000
+#define WSS_OUT_FILE_SUPPORTS_SEAL  0x20000000
+#define WSS_OUTPUT_FLAG_MASK        0xe0000000
+
+
+#define CPD_UISTATE_MODE_PROMPT                  0x00000000
+#define CPD_UISTATE_MODE_BLOCK                   0x00000001
+#define CPD_UISTATE_MODE_ALLOW                   0x00000002
+#define CPD_UISTATE_MODE_MASK                    0x00000003
+#define CPD_USE_NT5_CHAIN_FLAG                   0x80000000
+#define CPD_REVOCATION_CHECK_NONE                0x00010000
+#define CPD_REVOCATION_CHECK_END_CERT            0x00020000
+#define CPD_REVOCATION_CHECK_CHAIN               0x00040000
+#define CPD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT  0x00080000
+#define CPD_RETURN_LOWER_QUALITY_CHAINS          0x00100000
+#define CPD_CHOICE_SIP          1
+
+
+#define  SGNR_TYPE_TIMESTAMP     0x00000010
+
+#define  MSSIP_ADDINFO_NONE          0
+#define  MSSIP_ADDINFO_FLAT          1
+#define  MSSIP_ADDINFO_CATMEMBER     2
+#define  MSSIP_ADDINFO_BLOB          3
+#define  MSSIP_ADDINFO_NONMSSIP      500 // everything < is reserved by MS.
+
+#define  CERT_CONFIDENCE_SIG         0x10000000  // this cert
+#define  CERT_CONFIDENCE_TIME        0x01000000  // issuer cert
+#define  CERT_CONFIDENCE_TIMENEST    0x00100000  // this cert
+#define  CERT_CONFIDENCE_AUTHIDEXT   0x00010000  // this cert
+#define  CERT_CONFIDENCE_HYGIENE     0x00001000  // this cert
+#define  CERT_CONFIDENCE_HIGHEST     0x11111000
+
+
 #define COMPRESSION_FORMAT_NONE          (0x0000)
 #define COMPRESSION_FORMAT_DEFAULT       (0x0001)
 #define COMPRESSION_FORMAT_LZNT1         (0x0002)

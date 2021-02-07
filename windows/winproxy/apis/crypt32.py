@@ -22,6 +22,28 @@ def CertStrToNameA(dwCertEncodingType, pszX500, dwStrType, pvReserved, pbEncoded
 def CertStrToNameW(dwCertEncodingType, pszX500, dwStrType, pvReserved, pbEncoded, pcbEncoded, ppszError):
     return CertStrToNameW.ctypes_function(dwCertEncodingType, pszX500, dwStrType, pvReserved, pbEncoded, pcbEncoded, ppszError)
 
+
+@Crypt32Proxy(error_check=no_error_check)
+def CertNameToStrA(dwCertEncodingType, pName, dwStrType, psz, csz):
+    return CertNameToStrA.ctypes_function(
+        dwCertEncodingType,
+        pName,
+        dwStrType,
+        psz,
+        csz
+    )
+
+
+@Crypt32Proxy(error_check=no_error_check)
+def CertNameToStrW(dwCertEncodingType, pName, dwStrType, psz, csz):
+    return CertNameToStrW.ctypes_function(
+        dwCertEncodingType,
+        pName,
+        dwStrType,
+        psz,
+        csz
+    )
+
 @Crypt32Proxy()
 def CertGetNameStringA(pCertContext, dwType, dwFlags, pvTypePara, pszNameString, cchNameString):
     return CertGetNameStringA.ctypes_function(pCertContext, dwType, dwFlags, pvTypePara, pszNameString, cchNameString)

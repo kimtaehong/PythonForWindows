@@ -15,6 +15,22 @@ class WinTrustProxy(ApiProxy):
 def WinVerifyTrust(hwnd, pgActionID, pWVTData):
     return WinVerifyTrust.ctypes_function(hwnd, pgActionID, pWVTData)
 
+
+@WinTrustProxy(error_check=no_error_check)
+def WTHelperProvDataFromStateData(hStateData):
+    return WTHelperProvDataFromStateData.ctypes_function(hStateData)
+
+
+@WinTrustProxy(error_check=no_error_check)
+def WTHelperGetProvSignerFromChain(pProvData, idxSigner, fCounterSigner, idxCounterSigner):
+    return WTHelperGetProvSignerFromChain.ctypes_function(
+        pProvData,
+        idxSigner,
+        fCounterSigner,
+        idxCounterSigner
+    )
+
+
 # Catalog
 
 @WinTrustProxy()
