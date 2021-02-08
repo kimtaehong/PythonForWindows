@@ -564,7 +564,7 @@ def verify_file(verify_file_info,
 
 def verify_file_ex(filename):
     if not os.path.isfile(filename):
-        return
+        return VerifyResult.VrUnknown, []
 
     info = VerifyFileInfo()
 
@@ -578,7 +578,6 @@ def verify_file_ex(filename):
         action_id=WINTRUST_ACTION_GENERIC_VERIFY_V2,
     )
 
-    # todo 시스템 설정으로 인해 전자 서명을 구할 수 없는 경우 카탈로그 파일에서 가져와야한다.
     if verify_result == VerifyResult.VrNoSignature:
         # Windows 8 이상인 경우
         if sys.getwindowsversion().major > 6:
