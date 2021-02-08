@@ -37,13 +37,13 @@ def test_kernel32_signed():
 
 
 def test_verify_file():
-    no_sig_path = r'C:\Windows\System32\calc.exe'
-    verify_result, signer_names = windows.wintrust.verify_file_ex(no_sig_path)
+    chrome_path = r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+    verify_result, signer_names = windows.wintrust.verify_file_ex(chrome_path)
+
+    uwp_app_path = r'C:\Windows\System32\calc.exe'
+    verify_result, signer_names = windows.wintrust.verify_file_ex(uwp_app_path)
 
     assert verify_result == windows.wintrust.VerifyResult.VrTrusted
-
-    big_path = r"C:\ProgramData\Package Cache\FE948F0DAB52EB8CB5A740A77D8934B9E1A8E301\redist\vs_isoshell.exe"
-    verify_result, signer_names = windows.wintrust.verify_file_ex(big_path)
 
     test_path_list = []
     for file_path in glob.glob(f'c:\\windows\\system32\\*.*'):

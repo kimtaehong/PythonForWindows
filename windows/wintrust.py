@@ -302,7 +302,9 @@ def get_x500_value(value, key):
     token = value[sidx+len(ptrn):]
     if token[0] != '\"':
         eidx = value.find(',', sidx)
-        return value[sidx:eidx].replace(ptrn, '').strip()
+        if eidx != -1:
+            return value[sidx:eidx].replace(ptrn, '').strip()
+        return value[sidx:].replace(ptrn, '').strip()
     else:
         token = token[1:]
         return token[:token.find('\"')].strip()
